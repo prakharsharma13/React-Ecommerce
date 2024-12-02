@@ -2,6 +2,7 @@ import React, { useState } from "react";
 import "./Navbar.css";
 import logo from "../../assets/logo.png";
 import cart_icon from "../../assets/cart_icon.png";
+import { Link } from "react-router-dom";
 
 const Navbar = () => {
   const [menu, setMenu] = useState("shop");
@@ -17,33 +18,49 @@ const Navbar = () => {
             setMenu("shop");
           }}
         >
-          SHOP {menu == "shop" ? <hr /> : <></>}
+          <Link style={{ textDecoration: "none" }} to="/">
+            SHOP
+          </Link>{" "}
+          {menu == "shop" ? <hr /> : <></>}
         </li>
         <li
           onClick={() => {
             setMenu("men");
           }}
         >
-          MEN {menu == "men" ? <hr /> : <></>}
+          <Link style={{ textDecoration: "none" }} to="/men">
+            MEN
+          </Link>{" "}
+          {menu == "men" ? <hr /> : <></>}
         </li>
         <li
           onClick={() => {
             setMenu("women");
           }}
         >
-          WOMEN {menu == "women" ? <hr /> : <></>}
+          <Link style={{ textDecoration: "none" }} to="/women">
+            WOMEN
+          </Link>{" "}
+          {menu == "women" ? <hr /> : <></>}
         </li>
         <li
           onClick={() => {
             setMenu("kids");
           }}
         >
-          KIDS {menu == "kids" ? <hr /> : <></>}
+          <Link style={{ textDecoration: "none" }} to="/kids">
+            KIDS
+          </Link>{" "}
+          {menu == "kids" ? <hr /> : <></>}
         </li>
       </ul>
       <div className="nav-login-cart">
-        <button>LOGIN</button>
-        <img src={cart_icon} alt="" />
+        <Link style={{ textDecoration: "none" }} to="/login">
+          <button>LOGIN</button>
+        </Link>
+        <Link style={{ textDecoration: "none" }} to="/cart">
+          <img src={cart_icon} alt="" />
+        </Link>
         <div className="nav-cart-count">0</div>
       </div>
     </div>
